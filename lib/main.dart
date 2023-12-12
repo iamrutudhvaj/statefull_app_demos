@@ -27,11 +27,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String title = "Tap the screen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home Page"),
+        title: Text(title),
+      ),
+      body: GestureDetector(
+        child: Container(
+          color: Colors.amberAccent,
+        ),
+        onTap: () {
+          setState(() {
+            title = DateTime.now().toIso8601String();
+          });
+        },
       ),
     );
   }
